@@ -1,3 +1,5 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/stfanmichel/ESIR-TP5-SUBJECT/badge.svg?targetFile=package.json)](https://snyk.io/test/github/stfanmichel/ESIR-TP5-SUBJECT?targetFile=package.json)
+
 # ESIR-TP5 - Authentification
 
 Nous démarrons avec ce TP un projet un peu plus conséquent qui vous occupera durant 4 TP.
