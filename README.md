@@ -7,7 +7,6 @@ Nous démarrons avec ce TP un projet un peu plus conséquent qui vous occupera d
 Les 3 prochains TP seront fait avec Benoît Chanclou.
 
 Le schéma d'architecture global est disponible ![ici](sujetglobal.png)
-@import "sujetglobal.png"
 
 Aujourd'hui nous nous occuperons uniquement de la brique 'TP Initial'.
 
