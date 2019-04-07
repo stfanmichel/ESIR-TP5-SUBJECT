@@ -10,7 +10,16 @@ Le schéma d'architecture global est disponible ![ici](sujetglobal.png)
 
 Aujourd'hui nous nous occuperons uniquement de la brique 'TP Initial'.
 
+## Evaluation
+
 Le TP complet donnera lieu à une note. Vous fournirez pour cela un accès à votre repository GIT aux correcteurs (moi même et Benoît Chanclou). Afin que votre travail puisse être évaluer correctement, pensez à tagger vos commit régulièrement dans le temps.
+Parmis les critères d'évaluation on trouvera (liste non exhaustive, mais l'essentiel y est) :
+
+- l'atteinte de l'objectif (c'est quand même mieux si vous arrivez au bout),
+- les performances (tests de monté en charge),
+- la qualité du code (lisibilité, formatage, commentaires, testabilité, organisation des sources, etc.),
+- les tests unitaires (c'est mieux si ils passent et bien sur la couverture de code),
+- l'historique GIT (commentaires, propreté, cohérence...)
 
 ## Objectifs :
 
@@ -27,6 +36,7 @@ De plus, pour changer un peu les habitudes nous allons commencer par réaliser l
 - Express
 - REST / CRUD
 - Tests unitaires
+- Code coverage
 - JWT
 - Swagger / openapi
 
@@ -43,6 +53,8 @@ De plus, pour changer un peu les habitudes nous allons commencer par réaliser l
 - mocha : https://www.npmjs.com/package/mocha
 - chai : https://www.npmjs.com/package/chai
 - chai-http : https://www.npmjs.com/package/chai-http
+- nyc : https://www.npmjs.com/package/nyc
+- tcomp : https://www.npmjs.com/package/tcomb
 - helmet : https://www.npmjs.com/package/helmet
 - jsonwebtoken : https://www.npmjs.com/package/jsonwebtoken
 - uuid : https://www.npmjs.com/package/uuid
@@ -55,6 +67,36 @@ c'est qu'il est temps de commiter vos modifications afin de pouvoir revenir à c
 # Initialisation d'un projet
 
 Nous allons repartir du TP4 que nous allons étendre.
+
+Notez quelques ajouts tout de même :
+
+- l'utilisation du module _tcomb_ pour définir et valider la strcture d'un USER proprement (utilisé dans la méthode validate() de model/users.js).
+- l'utilisation du module _nyc_ (anciennement Istanbul), pour faire du code coverage.
+- l'ajout des scripts suivants dans package.json
+  - _"test": "mocha --timeout 10000 --exit"_ : pour lancer les tests une fois. Commande **npm test**.
+  - _"test-watch": "mocha --watch"_ : pour lancer les tests en tâche de fond, ils sont relancés dès que le code est modifié dans le projet. Commande **npm run test-watch**.
+  - _"test-coverage": "nyc --reporter=lcov --reporter=text-lcov npm test"_ : pour lancer les tests et le calcul du code coverage des tests. Commande **npm run test-coverage**.
+  - _"test-report": "npm run test-coverage && nyc report"_ : Pour lancer les tests, le calcul du code coverage et la génération du rapport au format HTML dans ./coverage/lcov-report/ESIR-TP5-SUBJECT/index.html. Commande **npm run test-report**.
+
+Notez que pour le moment l'ensemble des tests passent et que la couverture de code est de 100% (à une vache prêt).
+
+**Il est bien évidemment souhaitable qu'au fil du temps ses statistiques ne se dégradent pas, ce sera pris en compte dans l'évaluation du TP**...
+
+```
+npm run test-report
+
+-------------------------|----------|----------|----------|----------|-------------------|
+File                     |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+-------------------------|----------|----------|----------|----------|-------------------|
+All files                |      100 |      100 |      100 |      100 |                   |
+ ESIR-TP5-SUBJECT        |      100 |      100 |      100 |      100 |                   |
+  app.js                 |      100 |      100 |      100 |      100 |                   |
+ ESIR-TP5-SUBJECT/model  |      100 |      100 |      100 |      100 |                   |
+  users.js               |      100 |      100 |      100 |      100 |                   |
+ ESIR-TP5-SUBJECT/routes |      100 |      100 |      100 |      100 |                   |
+  users-v1.js            |      100 |      100 |      100 |      100 |                   |
+-------------------------|----------|----------|----------|----------|-------------------|
+```
 
 (tag : **TP5-ESIR-INIT**)
 

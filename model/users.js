@@ -1,4 +1,12 @@
 const uuidv1 = require('uuid/v1')
+const tcomb = require('tcomb')
+
+const USER = tcomb.struct({
+    id: tcomb.String,
+    name: tcomb.String,
+    login: tcomb.String,
+    age: tcomb.Number
+}, {strict: true})
 
 const users = [
     {
@@ -83,9 +91,15 @@ const remove = (id) => {
 }
 
 function validateUser(user) {
-    let result = true
-    if (user && user.id && user.login && user.name) {
-        result = true
+    let result = false
+    /* istanbul ignore else */
+    if (user) {
+        try {
+            const tcombUser = USER(user)
+            result = true
+        } catch (exc) {
+            result = false
+        }
     }
     return result
 }
