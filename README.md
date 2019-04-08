@@ -27,7 +27,9 @@ Nous nous occuperons pendant cette scéance de réaliser un serveur d'authentifi
 
 Nous allons partir du code déjà réalisé lors du TP4 et d'une spécification d'API REST au format Swagger que nous allons implémenter.
 
-[Swagger authentication API](Swagger_Authentication_API.yaml)
+[OpenAPI authentication API](Swagger_Authentication_API.yaml)
+
+**Pour visualiser correctement ce fichier, sous VSC utilisez le plugin ["OpenAPI Preview" de Andreas Zoallner](https://marketplace.visualstudio.com/items?itemName=zoellner.openapi-preview) plutôt que le plugin swagger qui gère asser mal l'OpenAPI v3.0.**
 
 De plus, pour changer un peu les habitudes nous allons commencer par réaliser les tests unitaires à la mode TDD.
 
@@ -38,7 +40,7 @@ De plus, pour changer un peu les habitudes nous allons commencer par réaliser l
 - Tests unitaires
 - Code coverage
 - JWT
-- Swagger / openapi
+- Swagger / OpenAPI 3.0
 
 ## Lien utiles :
 
